@@ -1,0 +1,6 @@
+obj
+bin
+/Infrastructure/Data/Migrations
+*.db
+appsettings.json
+.idea
