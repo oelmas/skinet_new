@@ -18,12 +18,11 @@ public class StoreContextSeed
 
                 if (brands != null)
                     foreach (var item in brands)
-                    {
                         context.ProductBrands.Add(item);
-                    }
 
                 await context.SaveChangesAsync();
             }
+
             if (!context.ProductTypes.Any())
             {
                 var typesData = File.ReadAllText("../Infrastructure/Data/SeedData/types.json");
@@ -31,12 +30,11 @@ public class StoreContextSeed
 
                 if (types != null)
                     foreach (var type in types)
-                    {
                         context.ProductTypes.Add(type);
-                    }
 
                 await context.SaveChangesAsync();
             }
+
             if (!context.Products.Any())
             {
                 var productsData = File.ReadAllText("../Infrastructure/Data/SeedData/products.json");
@@ -44,9 +42,7 @@ public class StoreContextSeed
 
                 if (products != null)
                     foreach (var item in products)
-                    {
                         context.Products.Add(item);
-                    }
 
                 await context.SaveChangesAsync();
             }

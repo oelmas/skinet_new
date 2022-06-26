@@ -9,7 +9,7 @@ public class ProductRepository : IProductRepository
 {
     private readonly StoreContext _context;
 
-    public  ProductRepository(StoreContext context)
+    public ProductRepository(StoreContext context)
     {
         _context = context;
     }
@@ -18,7 +18,7 @@ public class ProductRepository : IProductRepository
     {
         return await _context.Products
             .Include(p => p.ProductType)
-            .Include( p=> p.ProductBrand)
+            .Include(p => p.ProductBrand)
             .FirstOrDefaultAsync(p => p.Id == id);
     }
 
@@ -26,7 +26,7 @@ public class ProductRepository : IProductRepository
     {
         return await _context.Products
             .Include(p => p.ProductType)
-            .Include( p=> p.ProductBrand)
+            .Include(p => p.ProductBrand)
             .ToListAsync();
     }
 
@@ -38,6 +38,5 @@ public class ProductRepository : IProductRepository
     public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
     {
         return await _context.ProductTypes.ToListAsync();
-
     }
 }
